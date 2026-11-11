@@ -2,45 +2,50 @@
 
 A lightweight, local Python CLI tool designed to detect orphaned AWS resources and identify hidden infrastructure waste before it compounds into financial debt.
 
-This repository contains the **free core-logic preview** for analyzing basic AWS usage data.
+This repository contains the **free community edition** for analyzing basic AWS usage and billing exports.
 
-## 🚀 Upgrade to Enterprise: Automated Remediation
+---
 
-Want to stop manually deleting orphaned resources? The **Enterprise AWS FinOps Auditor** is a complete, automated multi-region financial cost waste calculator and remediation engine.
+### Edition Comparison
 
-**Enterprise Exclusive Features:**
-- **Automated Multi-Region Scanning:** Scans all active AWS regions simultaneously.
-- **Zero-Setup Credential Handling:** Automatically assumes cross-account roles.
-- **Slack & Teams Integrations:** Pushes daily/weekly waste reports directly to your engineering channels.
-- **1-Click Remediation:** Generates execution scripts to instantly delete orphaned resources.
+| Capability | Lite (Community) | Consultant & MSP Toolkit |
+| :--- | :---: | :---: |
+| Single-Account CSV Analysis | Yes | Yes |
+| Orphaned Storage & Idle Compute Detection | Yes | Yes |
+| Local Terminal & JSON Output | Yes | Yes |
+| AWS Organizations Multi-Account Scanning (`sts:AssumeRole`) | No | **Yes** |
+| Client-Ready Showback Reports (Markdown & PDF) | No | **Yes** |
+| Automated 1-Click Remediation Scripts (`--remediate`) | No | **Yes** |
+| Commercial Assessment License (Agency/Client Rights) | No | **Yes** |
 
-👉 [Download the Enterprise Engine Here](https://aisser.gumroad.com/l/vpcju)
+👉 **[Get the Consultant & MSP Toolkit on Gumroad](https://aisser.gumroad.com/l/krgac)** *(Practitioner $99 / Agency Pack $499)*
+
+---
+
+## 🚀 Commercial Editions: Consultant & MSP Toolkit
+
+Built for cloud consultants, MSPs, and infrastructure teams managing multi-account environments. The commercial toolkit shifts from static single-account file analysis to automated multi-account discovery and client-facing deliverables.
+
+- **AWS Organizations Multi-Account Engine:** Automatically discovers and assumes cross-account IAM roles across all member accounts in your AWS Organization.
+- **Client-Ready Showback Reports:** Generates executive Markdown and PDF summaries with showback by department and annualized savings calculations.
+- **1-Click Remediation Generator:** Auto-generates idempotent remediation scripts (`remediate_anomalies.sh`) for pull request review before deletion.
+- **Commercial Assessment Rights:** Includes a formal agency license permitting paid client assessments and audits.
+
+👉 **[Download the Commercial Toolkit](https://aisser.gumroad.com/l/krgac)**
 
 ---
 
 ## Lite Version Overview
 
-The free Lite engine runs a local parallel pipeline against exported AWS billing or usage CSVs. It executes multi-vector financial cost waste calculations to flag:
-- Unattached EBS Volumes
-- Idle EC2 Instances (CPU < 5%)
-- Unassociated Elastic IPs
-- Public-facing security anomalies
+The free Lite engine executes multi-vector cost and anomaly calculations locally against exported AWS billing or usage CSV files. It flags:
+- **Unattached EBS Volumes:** Identifies detached `gp2`, `gp3`, and `io2` storage incurring baseline monthly costs.
+- **Idle EC2 Instances:** Flags active compute instances running at sub-5% average CPU utilization.
+- **Unassociated Elastic IPs:** Catches unattached public IPv4 addresses incurring hourly reservation fees.
+- **Security & Configuration Anomalies:** Identifies unencrypted volumes and internet-exposed endpoints.
 
 ### Quickstart
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Ace7-coder/aws-finops-auditor-lite.git
+   git clone [https://github.com/Ace7-coder/aws-finops-auditor-lite.git](https://github.com/Ace7-coder/aws-finops-auditor-lite.git)
    cd aws-finops-auditor-lite
-   ```
-
-2. Install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the auditor against your sample data:
-   ```bash
-   python infrastructure_auditor.py --file sample_aws_data.csv
-   ```
-   
-
